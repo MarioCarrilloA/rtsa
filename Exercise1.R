@@ -4,7 +4,7 @@
 # Clean env
 rm(list=ls())
 
-roll <- function(N) {
+flip <- function(N) {
   coin <- c('heads', 'tails')
   result<-sample(coin, size = N, replace = TRUE)
 
@@ -18,7 +18,7 @@ simulation <- function(e) {
   f <- c()
 
   for(i in times) {
-    relative_frequency <- roll(i)
+    relative_frequency <- flip(i)
     writeLines('\nrelative frequency')
     cat(i, 'times\n')
     print(relative_frequency)
