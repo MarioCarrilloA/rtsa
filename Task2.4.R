@@ -59,7 +59,7 @@ mse3 = apply(aEst3, 2, mse, a=2)
 plot(N, mse1, col="red", log="xy", xlab="N", ylab="mse", main="MSE of Estimators")
 points(N, mse2, col="green")
 points(N, mse3, col="blue")
-legend("topright", legend = c("sample mean", "mean", "T"), pch=2, col=c("red", "green", "blue"))
+legend("topright", legend = c("sample mean", "mean", "T"), pch=1, col=c("red", "green", "blue"))
 
 ratio_median_mean = mse2/mse1
 ratio_T_mean = mse3/mse1
