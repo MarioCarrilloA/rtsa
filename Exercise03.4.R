@@ -33,6 +33,7 @@ make_plots <- function(id) {
   # Plot the 4 charts in a 2x2 grid
   par(mfrow=c(2,2))
 
+
   # Scatter plot
   plot(x, Y, xlab="x", ylab="Y", main="Scatter Plot")
   t<-seq(, 1, 0.1)
@@ -55,8 +56,16 @@ make_plots <- function(id) {
        main="Squared residuals vs Hii",
        xlab="Residuals^2",
        ylab="Leverage points (Hii)",
-       xlim = c(min(a$residuals^2), max(a$residuals^2)),
-       ylim = c(min(lm.influence(a)$hat), max(lm.influence(a)$hat)))
+       xlim=c(min(a$residuals^2), max(a$residuals^2)),
+       ylim=c(min(lm.influence(a)$hat), max(lm.influence(a)$hat)))
+
+  # Title
+  mtext(filename,
+        side= 3,
+        line=-3,
+        cex=2,
+        outer=TRUE,
+        col="blue")
   dev.off()
 }
 
