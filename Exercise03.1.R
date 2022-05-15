@@ -1,0 +1,27 @@
+#Yu-Chi Huang
+#Mario Carrillo
+data <- read.csv('children.csv')
+splited_data <- matrix(unlist(strsplit(data$age.weight, split = ';')), ncol = 2, byrow = T)
+colnames(splited_data) <- c('age', 'weight')
+d <- data.frame(age=splited_data[, 'age'], weight=splited_data[, 'weight'])
+x=as.numeric(d$age)
+y=as.numeric(d$weight)
+fit <- lm(y ~ x, data=d)
+n=length(x)
+cat('(b1, b2):\n', coef(fit))
+cat('\nresiduals:\n', fit$residuals)
+cat('\nvariance of the residuals:\n', sum(fit$residuals^2)/n)
+
+ssx <-sum((x-mean(x))^2)
+sd <- summary(fit)$sigma/sqrt(ssx)
+cat('\nstandard deviation of the slope coefficient b2:\n', sd)
+
+y_hat <- predict(fit)
+#dev.new(width = 550, height = 330, unit = "px")
+pdf('plot3_1.pdf')
+plot(x, y, xlab = 'age', ylab = 'weight')
+abline(fit, col='blue4')
+for(i in 1:n)
+  lines(c(x[i], x[i]), c(y[i], y_hat[i]), col='brown1', lty=2)
+legend('topleft', legend=c('regression line', 'residuals'), col = c('blue4', 'brown1'), lty = 1:2, cex = 0.8)
+dev.off()
