@@ -39,13 +39,8 @@ make_plots <- function(id) {
   t<-seq(, 1, 0.1)
   abline(a, col="red")
 
-  # Residual plot
-  plot(predict(a),
-       a$residuals,
-       main="Resiudal plot",
-       xlab="predicted values",
-       ylab="residuals")
-  lines(c(min(predict(a)-10), max(predict(a)+10)), c(0,0), col="green")
+  # Residual plot vs fitted
+  plot(a, c(1, 1))
 
   # Q-Q Plot
   plot(a, c(2, 2))
