@@ -44,4 +44,5 @@ Result3 = sapply(N, Number_of_Correct_Desion, alpha=0.05, a=0, b=1, m=100, sigma
 plot(N, (100-Result1)/100, xlab = 'N', ylab = ' Empirical Level and Empirical Power', ylim=c(0,1), col='red')
 points(N, Result2/100, col='green')
 points(N, Result3/100, col='blue')
-legend('topright', legend=c('Wrongly Rejected H0(b=0)', 'Corectly Rejected H0(b=0.2)', 'Corectly Rejected H0(b=1)'), col = c('red', 'green', 'blue'))
+legend('topright', legend=c('Wrongly Rejected H0(b=0)', 'Corectly Rejected H0(b=0.2)', 'Corectly Rejected H0(b=1)'), col=c('red', 'green', 'blue'),pch = 1, cex=0.8)
+
