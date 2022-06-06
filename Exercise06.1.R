@@ -18,7 +18,7 @@ plot_indicator <- function(N, alpha, delta){
   #dir.create(file.path(out_dir), showWarnings = FALSE)
   #png(file=out_img, width=800, height=600, pointsize=20)
   #########################################################
-  
+
   # Init k to N range
   k <- seq(1:N)
   # Adjust chart margins
@@ -27,23 +27,23 @@ plot_indicator <- function(N, alpha, delta){
   maxf2 <- delta * sqrt(N)
   minf2 <- delta * sqrt(1)
   ylim <-c(min(minf1/2, minf2/2), max(maxf1, maxf2))
-  
-  # Write title 
+
+  # Write title
   t <- TeX(
     sprintf(
-    r'(Indicator function: $k=$%d, $\alpha=$%.2f, $\delta=%f$)',
+    r'(Indicator function: $N=$%d, $\alpha=$%.2f, $\delta=%f$)',
     N, alpha, delta))
-  
+
   plot(k,
        abs(k^{alpha}),
        col="red",
        xlab=TeX(r'($k$)'),
-       ylab="functions", 
+       ylab="functions",
        type='l',
        main=t,
        ylim=ylim)
   lines(k, delta * sqrt(k), type="l", col="blue")
-  
+
   # Legends
   par(cex = 0.8)
   legend("topright",
@@ -51,7 +51,7 @@ plot_indicator <- function(N, alpha, delta){
                   TeX(r'($\delta \sqrt{k}$)')),
          lty=c(1, 1),
          col=c("red", "blue"))
-  
+
   # Uncomment to create PNG output image
   #dev.off()
 }
