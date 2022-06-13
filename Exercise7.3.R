@@ -20,7 +20,6 @@ all_subset_regression = function(data){
       residual_mean_square[i] =  residual_sum_squares/(N-d)
       Mallows_Cp[i] = residual_sum_squares/s_hat_square_max-(N-2*d)
     }
-    print(adjusted_R_square)
     cat('Adjusted R^2: ', max(adjusted_R_square), ', ', models_names[which.max(adjusted_R_square)])
     cat('\nResidual Mean Square: ', min(residual_mean_square), ', ', models_names[which.min(residual_mean_square)])
     cat('\nMallow\'s Cp: ', min(Mallows_Cp), ', ', models_names[which.min(Mallows_Cp)])
