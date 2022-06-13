@@ -6,7 +6,7 @@ all_subset_regression = function(data){
 
     #get largest model for Mallow's Cp
     fit_largest = lm(models_names[length(models_names)], data = data)
-    d = length(fit_largest$coefficients)-1
+    d = length(fit_largest$coefficients)
     N=length(fit_largest$residuals)
     s_hat_square_max = sum(residuals(fit_largest)^2)*(1/(N-d))
     adjusted_R_square = array(dim=(length(models_names)))
@@ -14,7 +14,7 @@ all_subset_regression = function(data){
     Mallows_Cp = array(dim=(length(models_names)))
     for(i in 1:length(models_names)){
       fit = lm(models_names[i], data = data)
-      d = length(fit$coefficients)-1
+      d = length(fit$coefficients)
       N=length(fit$residuals)
       residual_sum_squares = sum(residuals(fit)^2)
       total_sum_squares = sum(data$count-mean(data$count)^2)
