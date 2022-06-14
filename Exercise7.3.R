@@ -1,8 +1,6 @@
 #Yu-Chi Huang
 #Mario Carrillo
 
-library(lattice)
-
 all_subset_regression = function(data){
     models_names <- getmodels('count', c('date', 'temp', 'atemp', 'humidity', 'windspeed', 'registered'))
 
@@ -39,8 +37,7 @@ source('getmodels.r')
 all_subset_regression(data)
 
 #scatter plot
-trellis.par.set("fontsize", list(text=8, points=6))
-splom(data[c('date', 'temp', 'atemp', 'humidity', 'windspeed', 'registered', 'count')])
+pairs(~date+temp+atemp+humidity+windspeed+registered+count, data=data, main='Scatterplot')
 
 #boxplot
 par(mfrow=c(2, 3))
